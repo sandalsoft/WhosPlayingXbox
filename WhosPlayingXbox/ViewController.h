@@ -10,4 +10,13 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *userSearchTextField;
+
+@property (weak, nonatomic) IBOutlet UITableView *friendsTableView;
+
+
+
+- (void) fetchGamerTagStatus:(NSString *)gamerTag;
+
+
 @end
