@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GamerStatus.h"
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *userSearchTextField;
 @property (weak, nonatomic) IBOutlet UITableView *friendsTableView;
-
+@property (weak, nonatomic) GamerStatus *searchedGamerStatus;
 
 - (void) fetchGamerStatus:(NSString *) gamerTag;
 

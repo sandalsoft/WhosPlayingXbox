@@ -13,10 +13,19 @@
 @interface GamerStatusViewController : UIViewController
 
 @property (weak, nonatomic) GamerStatus *gamerStatus;
-@property (weak, nonatomic) IBOutlet UILabel *label1;
 
-@property (weak, nonatomic) IBOutlet UILabel *label2;
-@property (weak, nonatomic) IBOutlet UIImageView *imageview;
-@property (weak, nonatomic) IBOutlet UIButton *SaveToFavesButton;
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarTileImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *tierImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *gamertagLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarBodyImageView;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *reputationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mottoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bioLabel;
+@property (weak, nonatomic) IBOutlet UIButton *trackGamerButton;
 
 @end

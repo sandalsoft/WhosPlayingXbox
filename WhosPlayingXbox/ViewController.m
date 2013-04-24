@@ -52,16 +52,13 @@
                                                  GamerStatus *status = [[GamerStatus alloc] init];
                                                  if  ([JSON valueForKey:@"Data"]) {
                                                      [status setValuesForKeysWithDictionary:[JSON valueForKey:@"Data"]];
-                                                     NSLog(@"STATUS?: %@", status.OnlineStatus);
 
                                                      GamerStatusViewController *gamerDetailVC = [[GamerStatusViewController alloc] init];
-                                                     gamerDetailVC.gamerStatus = status;
+                                                     //gamerDetailVC.gamerStatus = status;
+                                                     self.searchedGamerStatus = status;
+                                                     NSLog(@"detail status: %@", gamerDetailVC.gamerStatus.OnlineStatus);
                                                      [self performSegueWithIdentifier:@"GamerDetailSegue" sender: self];
-                                                     
-//                                                     [self presentViewController:GamerStautsVC animated:YES
-//                                                                      completion:^{
-//                                                                          GamerStautsVC.gamerStatus = status;
-//                                                                      }];
+                                                    
                                                      
                                                  }
                                                  else {
@@ -83,6 +80,13 @@
     
     [jsonOperation start];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];    
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"GamerDetailSegue"]) {
+        NSLog(@"my gamer: %@", self.searchedGamerStatus.OnlineStatus);
+        [[segue destinationViewController] setGamerStatus:self.searchedGamerStatus];
+    }
 }
 
 @end
