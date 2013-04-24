@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GamerStatus.h"
 
-@interface ViewController : UIViewController <UITextFieldDelegate>
+@interface MainViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *userSearchTextField;
 @property (weak, nonatomic) IBOutlet UITableView *friendsTableView;

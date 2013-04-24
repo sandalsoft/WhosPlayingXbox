@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 Sandalsoft. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "GamerStatus.h"
 #import "GamerStatusViewController.h"
 
 
-@interface ViewController ()
+@interface MainViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad
 {

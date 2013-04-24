@@ -18,7 +18,7 @@
 		0715157C1725887C0063B811 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0715157B1725887C0063B811 /* Default-568h@2x.png */; };
 		0715157F1725887C0063B811 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0715157D1725887C0063B811 /* MainStoryboard_iPhone.storyboard */; };
 		071515821725887C0063B811 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 071515801725887C0063B811 /* MainStoryboard_iPad.storyboard */; };
-		071515851725887C0063B811 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071515841725887C0063B811 /* ViewController.m */; };
+		071515851725887C0063B811 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071515841725887C0063B811 /* MainViewController.m */; };
 		0715158D1725887C0063B811 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0715158C1725887C0063B811 /* SenTestingKit.framework */; };
 		0715158E1725887C0063B811 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071515651725887C0063B811 /* UIKit.framework */; };
 		0715158F1725887C0063B811 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071515671725887C0063B811 /* Foundation.framework */; };
@@ -61,8 +61,8 @@
 		0715157B1725887C0063B811 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0715157E1725887C0063B811 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		071515811725887C0063B811 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		071515831725887C0063B811 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		071515841725887C0063B811 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		071515831725887C0063B811 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		071515841725887C0063B811 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		0715158B1725887C0063B811 /* WhosPlayingXboxTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhosPlayingXboxTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0715158C1725887C0063B811 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		071515941725887C0063B811 /* WhosPlayingXboxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WhosPlayingXboxTests-Info.plist"; sourceTree = "<group>"; };
@@ -158,8 +158,8 @@
 				07735FDE17258D4300358067 /* GamerStatus.m */,
 				07E1BD5F17262C3A00AC9A88 /* GamerStatusViewController.h */,
 				07E1BD6017262C3A00AC9A88 /* GamerStatusViewController.m */,
-				071515831725887C0063B811 /* ViewController.h */,
-				071515841725887C0063B811 /* ViewController.m */,
+				071515831725887C0063B811 /* MainViewController.h */,
+				071515841725887C0063B811 /* MainViewController.m */,
 				0715156C1725887C0063B811 /* Supporting Files */,
 			);
 			path = WhosPlayingXbox;
@@ -341,7 +341,7 @@
 			files = (
 				071515721725887C0063B811 /* main.m in Sources */,
 				071515761725887C0063B811 /* AppDelegate.m in Sources */,
-				071515851725887C0063B811 /* ViewController.m in Sources */,
+				071515851725887C0063B811 /* MainViewController.m in Sources */,
 				07735FDF17258D4300358067 /* GamerStatus.m in Sources */,
 				07E1BD6117262C3A00AC9A88 /* GamerStatusViewController.m in Sources */,
 				07E1BD68172879E200AC9A88 /* NSString+HTML.m in Sources */,
