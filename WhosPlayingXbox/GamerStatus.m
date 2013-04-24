@@ -13,7 +13,7 @@
 
 
 - (void)setAvatarBody:(NSString *)stringInput  {
-    _AvatarTile = [NSURL URLWithString:stringInput];
+    _AvatarBody = [NSURL URLWithString:stringInput];
 }
 
 - (void)setAvatarBodySSL:(NSString *)stringInput  {

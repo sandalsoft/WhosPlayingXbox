@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *tierImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *gamertagLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarBodyImageView;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reputationLabel;
