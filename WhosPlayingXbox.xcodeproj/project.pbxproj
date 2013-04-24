@@ -27,6 +27,8 @@
 		07735FDA17258CB100358067 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07735FD917258CB100358067 /* SystemConfiguration.framework */; };
 		07735FDC17258CC400358067 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07735FDB17258CC400358067 /* MobileCoreServices.framework */; };
 		07735FDF17258D4300358067 /* GamerStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 07735FDE17258D4300358067 /* GamerStatus.m */; };
+		07E1BD581725E47B00AC9A88 /* SegoeWP.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07E1BD571725E47B00AC9A88 /* SegoeWP.ttf */; };
+		07E1BD6117262C3A00AC9A88 /* GamerStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E1BD6017262C3A00AC9A88 /* GamerStatusViewController.m */; };
 		98B82B86E50740D89E3E92C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E014D4CBD3594DB4AB9C8FF3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,9 @@
 		07735FDB17258CC400358067 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		07735FDD17258D4300358067 /* GamerStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamerStatus.h; sourceTree = "<group>"; };
 		07735FDE17258D4300358067 /* GamerStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamerStatus.m; sourceTree = "<group>"; };
+		07E1BD571725E47B00AC9A88 /* SegoeWP.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SegoeWP.ttf; sourceTree = "<group>"; };
+		07E1BD5F17262C3A00AC9A88 /* GamerStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamerStatusViewController.h; sourceTree = "<group>"; };
+		07E1BD6017262C3A00AC9A88 /* GamerStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamerStatusViewController.m; sourceTree = "<group>"; };
 		B778D8E3BE5F4215B16AE9A2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		E014D4CBD3594DB4AB9C8FF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -142,6 +147,8 @@
 				071515801725887C0063B811 /* MainStoryboard_iPad.storyboard */,
 				07735FDD17258D4300358067 /* GamerStatus.h */,
 				07735FDE17258D4300358067 /* GamerStatus.m */,
+				07E1BD5F17262C3A00AC9A88 /* GamerStatusViewController.h */,
+				07E1BD6017262C3A00AC9A88 /* GamerStatusViewController.m */,
 				071515831725887C0063B811 /* ViewController.h */,
 				071515841725887C0063B811 /* ViewController.m */,
 				0715156C1725887C0063B811 /* Supporting Files */,
@@ -152,6 +159,7 @@
 		0715156C1725887C0063B811 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07E1BD571725E47B00AC9A88 /* SegoeWP.ttf */,
 				0715156D1725887C0063B811 /* WhosPlayingXbox-Info.plist */,
 				0715156E1725887C0063B811 /* InfoPlist.strings */,
 				071515711725887C0063B811 /* main.m */,
@@ -260,6 +268,7 @@
 				0715157C1725887C0063B811 /* Default-568h@2x.png in Resources */,
 				0715157F1725887C0063B811 /* MainStoryboard_iPhone.storyboard in Resources */,
 				071515821725887C0063B811 /* MainStoryboard_iPad.storyboard in Resources */,
+				07E1BD581725E47B00AC9A88 /* SegoeWP.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +321,7 @@
 				071515761725887C0063B811 /* AppDelegate.m in Sources */,
 				071515851725887C0063B811 /* ViewController.m in Sources */,
 				07735FDF17258D4300358067 /* GamerStatus.m in Sources */,
+				07E1BD6117262C3A00AC9A88 /* GamerStatusViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

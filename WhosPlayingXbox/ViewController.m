@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "GamerStatus.h"
+#import "GamerStatusViewController.h"
+
 
 @interface ViewController ()
 
@@ -20,9 +22,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
+    self.userSearchTextField.text = @"theholyboot";
     self.userSearchTextField.delegate = self;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSArray *tits = [defaults objectForKey:@"gamerTags"];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSArray *tits = [defaults objectForKey:@"gamerTags"];
 
 }
 
@@ -32,60 +35,54 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void) fetchGamerTagStatus:(NSString *)gamerTag {
-    RKObjectMapping* gamerDataMapping = [RKObjectMapping mappingForClass:[GamerStatus class]];
-    [gamerDataMapping addAttributeMappingsFromDictionary:@{@"Tier":@"Tier",
-     @"IsValid":@"IsValid",
-     @"IsCheater":@"IsCheater",
-     @"IsOnline":@"IsOnline",
-     @"OnlineStatus":@"OnlineStatus",
-     @"XBLLaunchTeam":@"XBLLaunchTeam",
-     @"NXELaunchTeam":@"NXELaunchTeam",
-     @"KinectLaunchTeam":@"KinectLaunchTeam",
-     @"AvatarTile":@"AvatarTile",
-     @"AvatarSmall":@"AvatarSmall",
-     @"AvatarLarge":@"AvatarLarge",
-     @"AvatarBody":@"AvatarBody",
-     @"AvatarTileSSL":@"AvatarTileSSL",
-     @"AvatarSmallsSSL":@"AvatarSmallSSL",
-     @"AvatarLargeSSL":@"AvatarLargeSSL",
-     @"AvatarBodySSL":@"AvatarBodySSL",
-     @"GamerTag":@"GamerTag",
-     @"GamerScore":@"GamerScore",
-     @"Reputation":@"Reputation",
-     @"Name":@"Name",
-     @"Motto":@"Motto",
-     @"Location":@"Location",
-     @"Bio":@"Bio"}];
-    
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:gamerDataMapping pathPattern:nil keyPath:@"Data" statusCodes:nil];
-    NSURL *gamerStatusUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.xboxleaders.com/api/profile/%@.json", gamerTag]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:gamerStatusUrl];
-    RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result) {
-        GamerStatus *status = [result firstObject];
-        if ([status valueForKey:@"IsOnline"]) {
-            NSLog(@"gamer status is: %@", status.OnlineStatus);
-        }
-        else {
-            NSLog(@"ERROR RETRIEVING GAMERTAG");
-        }
-    } failure:nil];
-    [operation start];
-    
-    
-    
-    
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [[self userSearchTextField] resignFirstResponder];
+    [self fetchGamerStatus:self.userSearchTextField.text];
+    return YES;
 }
 
-- (BOOL) textFieldShouldReturn:(UITextField *)textField {
-    NSLog(@"enteres: %@", self.userSearchTextField.text);
-    [self fetchGamerTagStatus:self.userSearchTextField.text];
-    [[self userSearchTextField] resignFirstResponder];
+
+- (void) fetchGamerStatus:(NSString *) gamerTag {
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://www.xboxleaders.com"]];
+    NSMutableURLRequest *request =  [client requestWithMethod:@"GET" path:[NSString stringWithFormat:@"/api/profile/%@.json", gamerTag] parameters:nil];
+    [request setHTTPShouldUsePipelining:YES];
+    AFJSONRequestOperation *jsonOperation = [AFJSONRequestOperation
+                                             JSONRequestOperationWithRequest:request
+                                             success: ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                 GamerStatus *status = [[GamerStatus alloc] init];
+                                                 if  ([JSON valueForKey:@"Data"]) {
+                                                     [status setValuesForKeysWithDictionary:[JSON valueForKey:@"Data"]];
+                                                     NSLog(@"STATUS?: %@", status.OnlineStatus);
+
+                                                     GamerStatusViewController *gamerDetailVC = [[GamerStatusViewController alloc] init];
+                                                     gamerDetailVC.gamerStatus = status;
+                                                     [self performSegueWithIdentifier:@"GamerDetailSegue" sender: self];
+                                                     
+//                                                     [self presentViewController:GamerStautsVC animated:YES
+//                                                                      completion:^{
+//                                                                          GamerStautsVC.gamerStatus = status;
+//                                                                      }];
+                                                     
+                                                 }
+                                                 else {
+                                                     NSLog(@"ERROR: Gamertag not found");
+                                                     
+                                                     
+                                                 }
+                                                 [SVProgressHUD dismiss];
+                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                                        
+                                             }
+                                            failure:
+                                             ^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                 NSLog(@"%@", [error description]);
+                                                 [SVProgressHUD dismiss];
+                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                                                 
+                                             }];
     
-    
-    return YES;
+    [jsonOperation start];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];    
 }
 
 @end

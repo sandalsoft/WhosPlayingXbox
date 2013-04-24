@@ -26,7 +26,7 @@
 @property (strong, nonatomic) NSURL *AvatarSmallSSL;
 @property (strong, nonatomic) NSURL *AvatarLargeSSL;
 @property (strong, nonatomic) NSURL *AvatarBodySSL;
-@property (strong, nonatomic) NSString *GamerTag;
+@property (strong, nonatomic) NSString *Gamertag;
 @property (strong, nonatomic) NSNumber *GamerScore;
 @property (strong, nonatomic) NSNumber *Reputation;
 @property (strong, nonatomic) NSString *Motto;
