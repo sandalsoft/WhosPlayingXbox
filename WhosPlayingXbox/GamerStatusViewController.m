@@ -15,11 +15,10 @@
 
 @implementation GamerStatusViewController
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-
     
     // Set UI to downloaded information
     [self.avatarTileImageView setImageWithURL:self.gamerStatus.AvatarTile];
@@ -55,14 +54,22 @@
     self.avatarTileImageView.clipsToBounds = NO;
     [self.avatarTileImageView.layer setMasksToBounds:NO];
     
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self setFavoriteUnfavoriteButtonImage];
+}
+
+- (void)setFavoriteUnfavoriteButtonImage
+{
     // Set follow/UnFollow button title depending if gamer is alredy a favorite
     if ([self gamerTagExistsInFavorites:self.gamerStatus.Gamertag]) {
-        self.followButton.titleLabel.text = @"Unfollow";
+        [self.followButton setBackgroundImage:[UIImage imageNamed:@"minus-64"] forState:UIControlStateNormal];
         NSLog(@"button says UNfollow");
     }
     else {
-        self.followButton.titleLabel.text = @"Follow";
+        [self.followButton setBackgroundImage:[UIImage imageNamed:@"plus-64"] forState:UIControlStateNormal];
+
         NSLog(@"button says Follow");
     }
 }
@@ -74,6 +81,8 @@
     }
     else
         [self removeGamerTagFromFavorites:self.gamerStatus.Gamertag];
+    
+
 }
 
 
@@ -85,6 +94,7 @@
     [defaults setObject:existingUsers forKey:FOLLOWED_GAMERS_ARRAY_KEY];
     [defaults synchronize];
     NSLog(@"saving %@", self.gamerStatus.Gamertag);
+    [self setFavoriteUnfavoriteButtonImage];
 }
 
 - (void)removeGamerTagFromFavorites:(NSString *)gamerTag {
@@ -95,6 +105,7 @@
     [defaults synchronize];
     
     NSLog(@"removed %@", gamerTag);
+    [self setFavoriteUnfavoriteButtonImage];
 
 }
 

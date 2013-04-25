@@ -24,6 +24,10 @@
 		0715158F1725887C0063B811 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071515671725887C0063B811 /* Foundation.framework */; };
 		071515971725887C0063B811 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 071515951725887C0063B811 /* InfoPlist.strings */; };
 		0715159A1725887C0063B811 /* WhosPlayingXboxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 071515991725887C0063B811 /* WhosPlayingXboxTests.m */; };
+		0748CFDE17298B44005CDE0C /* plus2-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 0748CFDD17298B44005CDE0C /* plus2-64.png */; };
+		0748CFE017298B58005CDE0C /* minus2-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 0748CFDF17298B58005CDE0C /* minus2-64.png */; };
+		0748CFE217298BA6005CDE0C /* minus-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 0748CFE117298BA6005CDE0C /* minus-64.png */; };
+		0748CFE417298BC0005CDE0C /* plus-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 0748CFE317298BC0005CDE0C /* plus-64.png */; };
 		07735FDA17258CB100358067 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07735FD917258CB100358067 /* SystemConfiguration.framework */; };
 		07735FDC17258CC400358067 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07735FDB17258CC400358067 /* MobileCoreServices.framework */; };
 		07735FDF17258D4300358067 /* GamerStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 07735FDE17258D4300358067 /* GamerStatus.m */; };
@@ -74,6 +78,10 @@
 		071515961725887C0063B811 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		071515981725887C0063B811 /* WhosPlayingXboxTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WhosPlayingXboxTests.h; sourceTree = "<group>"; };
 		071515991725887C0063B811 /* WhosPlayingXboxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhosPlayingXboxTests.m; sourceTree = "<group>"; };
+		0748CFDD17298B44005CDE0C /* plus2-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus2-64.png"; sourceTree = "<group>"; };
+		0748CFDF17298B58005CDE0C /* minus2-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "minus2-64.png"; sourceTree = "<group>"; };
+		0748CFE117298BA6005CDE0C /* minus-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "minus-64.png"; sourceTree = "<group>"; };
+		0748CFE317298BC0005CDE0C /* plus-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-64.png"; sourceTree = "<group>"; };
 		07735FD917258CB100358067 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		07735FDB17258CC400358067 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		07735FDD17258D4300358067 /* GamerStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamerStatus.h; sourceTree = "<group>"; };
@@ -180,6 +188,10 @@
 		0715156C1725887C0063B811 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0748CFE317298BC0005CDE0C /* plus-64.png */,
+				0748CFE117298BA6005CDE0C /* minus-64.png */,
+				0748CFDF17298B58005CDE0C /* minus2-64.png */,
+				0748CFDD17298B44005CDE0C /* plus2-64.png */,
 				07E1BD571725E47B00AC9A88 /* SegoeWP.ttf */,
 				07E1BD641728693300AC9A88 /* xboxGoldTier .png */,
 				07E1BD7217289C9800AC9A88 /* back.png */,
@@ -311,6 +323,10 @@
 				07E1BD7317289C9800AC9A88 /* back.png in Resources */,
 				07E1BD7617289F3400AC9A88 /* StarEmptyLarge@2x.png in Resources */,
 				07E1BD7717289F3400AC9A88 /* StarFullLarge@2x.png in Resources */,
+				0748CFDE17298B44005CDE0C /* plus2-64.png in Resources */,
+				0748CFE017298B58005CDE0C /* minus2-64.png in Resources */,
+				0748CFE217298BA6005CDE0C /* minus-64.png in Resources */,
+				0748CFE417298BC0005CDE0C /* plus-64.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
