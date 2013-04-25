@@ -12,6 +12,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "QuartzCore/CALayer.h"
 
+#define FOLLOWED_GAMERS_ARRAY_KEY @"followedGamers"
+
 #ifndef __IPHONE_5_0
 #warning "This project uses features only available in iOS SDK 5.0 and later."
 #endif

@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "GamerStatus.h"
 
-@interface MainViewController : UIViewController <UITextFieldDelegate>
+@interface MainViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *userSearchTextField;
-@property (weak, nonatomic) IBOutlet UITableView *friendsTableView;
+@property (weak, nonatomic) IBOutlet UITableView *favoritesTableView;
 @property (weak, nonatomic) GamerStatus *searchedGamerStatus;
+@property (strong, nonatomic) NSMutableArray *followedGamers;
 
 - (void) fetchGamerStatus:(NSString *) gamerTag;
 

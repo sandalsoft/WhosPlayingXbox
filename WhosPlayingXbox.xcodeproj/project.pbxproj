@@ -126,7 +126,6 @@
 		071515591725887C0063B811 = {
 			isa = PBXGroup;
 			children = (
-				07E1BD6E1728999400AC9A88 /* QuartzCore.framework */,
 				0715156B1725887C0063B811 /* WhosPlayingXbox */,
 				071515921725887C0063B811 /* WhosPlayingXboxTests */,
 				071515641725887C0063B811 /* Frameworks */,
@@ -147,6 +146,7 @@
 		071515641725887C0063B811 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07E1BD6E1728999400AC9A88 /* QuartzCore.framework */,
 				07735FDB17258CC400358067 /* MobileCoreServices.framework */,
 				07735FD917258CB100358067 /* SystemConfiguration.framework */,
 				071515651725887C0063B811 /* UIKit.framework */,

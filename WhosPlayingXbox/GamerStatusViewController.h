@@ -12,7 +12,8 @@
 
 @interface GamerStatusViewController : UIViewController
 
-@property (weak, nonatomic) GamerStatus *gamerStatus;
+@property (strong, nonatomic) GamerStatus *gamerStatus;
+@property (weak, nonatomic) IBOutlet UIButton *followButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarTileImageView;
@@ -22,11 +23,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarBodyImageView;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (weak, nonatomic) IBOutlet UILabel *reputationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mottoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bioLabel;
-@property (weak, nonatomic) IBOutlet UIButton *trackGamerButton;
+
+
+
+- (BOOL)gamerTagExistsInFavorites:(NSString *) gamerTag;
+- (void)addGamerTagToFavorites:(NSString *)gamerTag;
+- (void)removeGamerTagFromFavorites:(NSString *)gamerTag;
 
 @end
