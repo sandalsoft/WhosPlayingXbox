@@ -7,6 +7,7 @@
 //
 
 #import "GamerStatusViewController.h"
+#import "DYRateView.h"
 
 @interface GamerStatusViewController ()
 
@@ -24,7 +25,7 @@
     self.statusLabel.text =  [self.gamerStatus.OnlineStatus stringByDecodingHTMLEntities];
     self.gamertagLabel.text = self.gamerStatus.Gamertag;
     self.scoreLabel.text = [self.gamerStatus.GamerScore stringValue];
-    self.reputationLabel.text = [self.gamerStatus.Reputation stringValue];
+//    self.reputationLabel.text = [self.gamerStatus.Reputation stringValue];
     self.nameLabel.text = self.gamerStatus.Name;
     self.locationLabel.text = self.gamerStatus.Location;
     self.mottoLabel.text = self.gamerStatus.Motto;
@@ -33,6 +34,23 @@
     if ([self.gamerStatus.Tier isEqualToString:@"gold"]) {
         self.tierImageView.image = [UIImage imageNamed:@"xboxGoldTier "];
     }
+    
+    DYRateView *reputationView = [[DYRateView alloc] initWithFrame:CGRectMake(245, 40, 70,20)];
+    reputationView.rate = [self.gamerStatus.Reputation floatValue] / 4.0f;
+    reputationView.alignment = RateViewAlignmentLeft;
+    [self.view addSubview:reputationView];
+    
+    
+    // Get thumbnail image in background thread
+    [self.avatarTileImageView.layer setBorderColor:[[UIColor blackColor] CGColor]];
+    [self.avatarTileImageView.layer setBorderWidth:1.0];
+    self.avatarTileImageView.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.avatarTileImageView.layer.shadowOffset = CGSizeMake(2, 2);
+    self.avatarTileImageView.layer.shadowOpacity = 1;
+    self.avatarTileImageView.layer.shadowRadius = 1;
+    self.avatarTileImageView.clipsToBounds = NO;
+    [self.avatarTileImageView.layer setMasksToBounds:NO];
+
     
 
 

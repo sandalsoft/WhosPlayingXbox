@@ -22,7 +22,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
-    self.userSearchTextField.text = @"theholyboot";
+    self.userSearchTextField.text = @"Retrominano";
     self.userSearchTextField.delegate = self;
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //    NSArray *tits = [defaults objectForKey:@"gamerTags"];
@@ -37,7 +37,9 @@
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [[self userSearchTextField] resignFirstResponder];
-    [self fetchGamerStatus:self.userSearchTextField.text];
+    NSString *escapedSearchTest = [self.userSearchTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"Escaped search string: %@", escapedSearchTest);
+    [self fetchGamerStatus:escapedSearchTest];
     return YES;
 }
 
@@ -48,37 +50,31 @@
     [request setHTTPShouldUsePipelining:YES];
     AFJSONRequestOperation *jsonOperation = [AFJSONRequestOperation
                                              JSONRequestOperationWithRequest:request
-                                             success: ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                 GamerStatus *status = [[GamerStatus alloc] init];
-                                                 if  ([JSON valueForKey:@"Data"]) {
-                                                     [status setValuesForKeysWithDictionary:[JSON valueForKey:@"Data"]];
-
-                                                     GamerStatusViewController *gamerDetailVC = [[GamerStatusViewController alloc] init];
-                                                     //gamerDetailVC.gamerStatus = status;
-                                                     self.searchedGamerStatus = status;
-                                                     NSLog(@"detail status: %@", gamerDetailVC.gamerStatus.OnlineStatus);
-                                                     [self performSegueWithIdentifier:@"GamerDetailSegue" sender: self];
-                                                    
-                                                     
-                                                 }
-                                                 else {
-                                                     NSLog(@"ERROR: Gamertag not found");
-                                                     
-                                                     
-                                                 }
-                                                 [SVProgressHUD dismiss];
-                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                                        
-                                             }
-                                            failure:
-                                             ^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                 NSLog(@"%@", [error description]);
-                                                 [SVProgressHUD dismiss];
-                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                                                 
-                                             }];
+             success: ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                 GamerStatus *status = [[GamerStatus alloc] init];
+                 if  ([JSON valueForKey:@"Data"]) {
+                     [SVProgressHUD dismiss];
+                     [status setValuesForKeysWithDictionary:[JSON valueForKey:@"Data"]];
+                     self.searchedGamerStatus = status;
+                     [self performSegueWithIdentifier:@"GamerDetailSegue" sender: self];
+                     
+                 }
+                 else {
+                     NSLog(@"ERROR: Gamertag not found");
+                     [SVProgressHUD showErrorWithStatus:@"Gamertag not found"];
+                 }
+                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+             }
+            failure:
+             ^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                 NSLog(@"%@", [error description]);
+                 [SVProgressHUD dismiss];
+                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                 
+             }];
     
     [jsonOperation start];
+    [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"Searching for %@", self.userSearchTextField.text]];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];    
 }
 
