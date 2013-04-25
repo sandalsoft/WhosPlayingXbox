@@ -59,7 +59,6 @@
 - (void) viewWillAppear:(BOOL)animated {
     [self loadFavoritesFromNSUserDefaults];
     [self.favoritesTableView reloadData];
-    NSLog(@"main view will appear");
 }
 
 - (void) fetchGamerStatus:(NSString *) gamerTag {
@@ -87,23 +86,33 @@
                                                  NSLog(@"ERROR: %@", [error description]);
                                                  [SVProgressHUD dismiss];
                                                  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                                                 
                                              }];
-    
     [jsonOperation start];
     [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"Searching for %@", self.userSearchTextField.text]];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];    
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     NSLog(@"cell  gamer: %@", [self.followedGamers objectAtIndex:[self.favoritesTableView indexPathForSelectedRow].row]);
+
     if ([[segue identifier] isEqualToString:@"GamerDetailSegue"]) {
-//        NSLog(@"my gamer: %@", self.searchedGamerStatus.OnlineStatus);
         [[segue destinationViewController] setGamerStatus:self.searchedGamerStatus];
+    }
+    
+    if ([[segue identifier] isEqualToString:@"CellGamerDetailSegue"]) {
+        NSLog(@"cell  gamer: %@", [self.followedGamers objectAtIndex:[self.favoritesTableView indexPathForSelectedRow].row]);
+        // Set gamer detail to the selected GamerStatus object
+        [[segue destinationViewController] setGamerStatus:[self.followedGamers objectAtIndex:[self.favoritesTableView indexPathForSelectedRow].row]];
     }
 }
 
 
 #pragma mark TableView delegates
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"CellGamerDetailSegue" sender: self]; 
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.followedGamers count];
@@ -120,11 +129,6 @@
     return cell;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 #pragma mark TextField delegate
@@ -139,5 +143,10 @@
     [self.userSearchTextField resignFirstResponder];
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 @end
