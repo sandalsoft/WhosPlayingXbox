@@ -30,7 +30,7 @@
     self.userSearchTextField.delegate = self;
     
     // Set default search value
-    self.userSearchTextField.text = @"Retrominano";
+    self.userSearchTextField.text = @"";
 
     // Get saved gamertags from defaults and load into property
     [self loadFavoritesFromNSUserDefaults];

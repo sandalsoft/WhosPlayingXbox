@@ -451,6 +451,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Nelson (7Q9MH28Y3R)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -466,6 +467,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "D87E7029-672C-4451-9F03-B11B8925E7E7";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -483,6 +485,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Nelson (7Q9MH28Y3R)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -491,6 +494,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "D87E7029-672C-4451-9F03-B11B8925E7E7";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -501,10 +505,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B778D8E3BE5F4215B16AE9A2 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Nelson (7Q9MH28Y3R)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhosPlayingXbox/WhosPlayingXbox-Prefix.pch";
 				INFOPLIST_FILE = "WhosPlayingXbox/WhosPlayingXbox-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D87E7029-672C-4451-9F03-B11B8925E7E7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -513,10 +519,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B778D8E3BE5F4215B16AE9A2 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Nelson (7Q9MH28Y3R)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhosPlayingXbox/WhosPlayingXbox-Prefix.pch";
 				INFOPLIST_FILE = "WhosPlayingXbox/WhosPlayingXbox-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D87E7029-672C-4451-9F03-B11B8925E7E7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
