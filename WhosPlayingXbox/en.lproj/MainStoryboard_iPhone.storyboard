@@ -34,9 +34,6 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <connections>
-                                            <segue destination="lyW-KQ-RT5" kind="modal" identifier="CellGamerDetailSegue" modalTransitionStyle="crossDissolve" id="bic-wt-WcV"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -257,7 +254,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="bic-wt-WcV"/>
-    </inferredMetricsTieBreakers>
 </document>
