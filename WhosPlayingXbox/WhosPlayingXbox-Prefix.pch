@@ -11,6 +11,9 @@
 #import "NSString+HTML.h"
 #import <QuartzCore/QuartzCore.h>
 #import "QuartzCore/CALayer.h"
+#import "WBNoticeView.h"
+#import "WBSuccessNoticeView.h"
+#import "WBErrorNoticeView.h"
 
 #define FOLLOWED_GAMERS_ARRAY_KEY @"followedGamers"
 

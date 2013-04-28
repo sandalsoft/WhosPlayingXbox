@@ -27,10 +27,10 @@
     self.favoritesTableView.delegate = self;
     [self.favoritesTableView setAllowsSelection:YES];
     // UITextFiled Delegate
-    self.userSearchTextField.delegate = self;
+    self.GamerTagSearchTextField.delegate = self;
     
     // Set default search value
-    self.userSearchTextField.text = @"";
+    self.GamerTagSearchTextField.text = @"";
 
     // Get saved gamertags from defaults and load into property
     [self loadFavoritesFromNSUserDefaults];
@@ -54,12 +54,13 @@
     // Reload defaults into array property and refresh table data when view appears
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.followedGamers = [defaults objectForKey:FOLLOWED_GAMERS_ARRAY_KEY];
-    NSLog(@"saved gamertags: %@", self.followedGamers);
+//    NSLog(@"saved gamertags: %@", self.followedGamers);
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [self loadFavoritesFromNSUserDefaults];
     [self.favoritesTableView reloadData];
+    self.GamerTagSearchTextField.text = @"";
 }
 
 - (void) fetchGamerStatus:(NSString *) gamerTag {
@@ -126,14 +127,14 @@
 
 #pragma mark TextField delegate
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
-    [[self userSearchTextField] resignFirstResponder];
-    NSString *escapedSearchTest = [self.userSearchTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [[self GamerTagSearchTextField] resignFirstResponder];
+    NSString *escapedSearchTest = [self.GamerTagSearchTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [self fetchGamerStatus:escapedSearchTest];
     return YES;
 }
 
 -(void)dismissKeyboard {
-    [self.userSearchTextField resignFirstResponder];
+    [self.GamerTagSearchTextField resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning

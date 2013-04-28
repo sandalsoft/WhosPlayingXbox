@@ -99,6 +99,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self setFavoriteUnfavoriteButtonImage];
+
 }
 
 - (void)setFavoriteUnfavoriteButtonImage
@@ -116,9 +117,15 @@
     
     if (![self gamerTagExistsInFavorites:self.gamerStatus.Gamertag]) {
         [self addGamerTagToFavorites:self.gamerStatus.Gamertag];
+        WBSuccessNoticeView *notice = [WBSuccessNoticeView successNoticeInView:self.view title:@"Gamer Added!"];
+        [notice show];
     }
-    else
+    else {
         [self removeGamerTagFromFavorites:self.gamerStatus.Gamertag];
+        WBSuccessNoticeView *notice = [WBSuccessNoticeView successNoticeInView:self.view title:@"Gamer Removed!"];
+        [notice show];
+    }
+    
 }
 
 
@@ -129,18 +136,24 @@
     [existingUsers addObject:gamerTag];
     [defaults setObject:existingUsers forKey:FOLLOWED_GAMERS_ARRAY_KEY];
     [defaults synchronize];
-    NSLog(@"saving %@", self.gamerStatus.Gamertag);
+//    NSLog(@"saving %@", self.gamerStatus.Gamertag);
     [self setFavoriteUnfavoriteButtonImage];
 }
 
 - (void)removeGamerTagFromFavorites:(NSString *)gamerTag {
+    
+    // Get defaults into existingUsers
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray *existingUsers = [[NSMutableArray alloc] init];
-    [existingUsers removeObject:gamerTag];
-    [defaults setObject:existingUsers forKey:FOLLOWED_GAMERS_ARRAY_KEY];
+        NSMutableArray *existingGamers = [[NSMutableArray alloc] init];
+    existingGamers = [[defaults objectForKey:FOLLOWED_GAMERS_ARRAY_KEY] mutableCopy];
+    
+    // Remove gamer gamerTag from existingGamers array
+//    NSLog(@"remove at index %i", [existingGamers indexOfObject:gamerTag]);
+    [existingGamers removeObjectAtIndex:[existingGamers indexOfObject:gamerTag]];
+    [defaults setObject:existingGamers forKey:FOLLOWED_GAMERS_ARRAY_KEY];
     [defaults synchronize];
     
-    NSLog(@"removed %@", gamerTag);
+//    NSLog(@"removed %@", gamerTag);
     [self setFavoriteUnfavoriteButtonImage];
 
 }

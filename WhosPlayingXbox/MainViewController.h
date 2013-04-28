@@ -11,7 +11,7 @@
 
 @interface MainViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *userSearchTextField;
+@property (weak, nonatomic) IBOutlet UITextField *GamerTagSearchTextField;
 @property (weak, nonatomic) IBOutlet UITableView *favoritesTableView;
 @property (weak, nonatomic) GamerStatus *searchedGamerStatus;
 @property (strong, nonatomic) NSMutableArray *followedGamers;
