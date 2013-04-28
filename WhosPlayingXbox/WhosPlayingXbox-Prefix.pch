@@ -15,6 +15,10 @@
 #import "WBSuccessNoticeView.h"
 #import "WBErrorNoticeView.h"
 
+#import "CoreData+MagicalRecord.h"
+
+
+
 #define FOLLOWED_GAMERS_ARRAY_KEY @"followedGamers"
 
 #ifndef __IPHONE_5_0
