@@ -95,6 +95,12 @@
     
     [self setGamerDetails];
     
+    NSDate *now = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Updated %@", [formatter stringFromDate:now]];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

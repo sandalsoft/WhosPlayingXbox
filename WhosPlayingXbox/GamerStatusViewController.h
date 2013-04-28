@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *mottoLabel;
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
+@property (weak, nonatomic) IBOutlet UILabel *lastUpdatedLabel;
 
 
 - (BOOL)gamerTagExistsInFavorites:(NSString *) gamerTag;

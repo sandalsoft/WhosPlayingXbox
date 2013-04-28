@@ -41,6 +41,8 @@
 		07E1BD7317289C9800AC9A88 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 07E1BD7217289C9800AC9A88 /* back.png */; };
 		07E1BD7617289F3400AC9A88 /* StarEmptyLarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07E1BD7417289F3400AC9A88 /* StarEmptyLarge@2x.png */; };
 		07E1BD7717289F3400AC9A88 /* StarFullLarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07E1BD7517289F3400AC9A88 /* StarFullLarge@2x.png */; };
+		07FB46A0172DC39B00225539 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FB469F172DC39B00225539 /* CoreData.framework */; };
+		07FB46A2172DC98C00225539 /* refresh-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FB46A1172DC98C00225539 /* refresh-48.png */; };
 		98B82B86E50740D89E3E92C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E014D4CBD3594DB4AB9C8FF3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +101,8 @@
 		07E1BD7217289C9800AC9A88 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		07E1BD7417289F3400AC9A88 /* StarEmptyLarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarEmptyLarge@2x.png"; sourceTree = "<group>"; };
 		07E1BD7517289F3400AC9A88 /* StarFullLarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarFullLarge@2x.png"; sourceTree = "<group>"; };
+		07FB469F172DC39B00225539 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		07FB46A1172DC98C00225539 /* refresh-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh-48.png"; sourceTree = "<group>"; };
 		B778D8E3BE5F4215B16AE9A2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		E014D4CBD3594DB4AB9C8FF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -108,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07FB46A0172DC39B00225539 /* CoreData.framework in Frameworks */,
 				07E1BD6F1728999400AC9A88 /* QuartzCore.framework in Frameworks */,
 				07735FDC17258CC400358067 /* MobileCoreServices.framework in Frameworks */,
 				07735FDA17258CB100358067 /* SystemConfiguration.framework in Frameworks */,
@@ -154,6 +159,7 @@
 		071515641725887C0063B811 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07FB469F172DC39B00225539 /* CoreData.framework */,
 				07E1BD6E1728999400AC9A88 /* QuartzCore.framework */,
 				07735FDB17258CC400358067 /* MobileCoreServices.framework */,
 				07735FD917258CB100358067 /* SystemConfiguration.framework */,
@@ -188,6 +194,7 @@
 		0715156C1725887C0063B811 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07FB46A1172DC98C00225539 /* refresh-48.png */,
 				0748CFE317298BC0005CDE0C /* plus-64.png */,
 				0748CFE117298BA6005CDE0C /* minus-64.png */,
 				0748CFDF17298B58005CDE0C /* minus2-64.png */,
@@ -327,6 +334,7 @@
 				0748CFE017298B58005CDE0C /* minus2-64.png in Resources */,
 				0748CFE217298BA6005CDE0C /* minus-64.png in Resources */,
 				0748CFE417298BC0005CDE0C /* plus-64.png in Resources */,
+				07FB46A2172DC98C00225539 /* refresh-48.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
