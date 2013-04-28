@@ -16,21 +16,55 @@
 @implementation GamerStatusViewController
 
 
-- (void)viewDidLoad
+- (void)setGamerDetails
 {
-    [super viewDidLoad];
-    
     // Set UI to downloaded information
     [self.avatarTileImageView setImageWithURL:self.gamerStatus.AvatarTile];
     [self.avatarBodyImageView setImageWithURL:self.gamerStatus.AvatarBody];
     self.statusLabel.text =  [self.gamerStatus.OnlineStatus stringByDecodingHTMLEntities];
     self.gamertagLabel.text = self.gamerStatus.Gamertag;
     self.scoreLabel.text = [self.gamerStatus.GamerScore stringValue];
-//    self.reputationLabel.text = [self.gamerStatus.Reputation stringValue];
-    self.nameLabel.text = self.gamerStatus.Name;
-    self.locationLabel.text = self.gamerStatus.Location;
-    self.mottoLabel.text = self.gamerStatus.Motto;
-    self.bioLabel.text = self.gamerStatus.Bio;
+    //    self.reputationLabel.text = [self.gamerStatus.Reputation stringValue];
+
+    
+    // Name
+    if (![self.gamerStatus.Name isEqualToString:@""])
+        self.nameLabel.text = [self.gamerStatus.Name stringByDecodingHTMLEntities];
+    else {
+        self.nameLabel.textAlignment = NSTextAlignmentCenter;
+        self.nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-LightItalic" size:18];
+        self.nameLabel.textColor = [UIColor lightGrayColor];
+        self.nameLabel.text = @"Name not available";
+    }
+    
+    // Location
+    if (![self.gamerStatus.Location isEqualToString:@""])
+        self.locationLabel.text = [self.gamerStatus.Location stringByDecodingHTMLEntities];
+    else {
+        self.locationLabel.textAlignment = NSTextAlignmentCenter;
+        self.locationLabel.font = [UIFont fontWithName:@"HelveticaNeue-LightItalic" size:18];
+        self.locationLabel.textColor = [UIColor lightGrayColor];
+        self.locationLabel.text = @"Location not available";
+    }
+    
+    // Motto
+    if (![self.gamerStatus.Motto isEqualToString:@""])
+        self.mottoLabel.text = [self.gamerStatus.Motto stringByDecodingHTMLEntities];
+    else {
+        self.mottoLabel.textAlignment = NSTextAlignmentCenter;
+        self.mottoLabel.font = [UIFont fontWithName:@"HelveticaNeue-LightItalic" size:18];
+        self.mottoLabel.textColor = [UIColor lightGrayColor];
+        self.mottoLabel.text = @"Motto not available";
+    }
+    
+    if (![self.gamerStatus.Bio isEqualToString:@""])
+        self.bioTextView.text = [self.gamerStatus.Bio stringByDecodingHTMLEntities];
+    else {
+        self.bioTextView.textAlignment = NSTextAlignmentCenter;
+        self.bioTextView.font = [UIFont fontWithName:@"HelveticaNeue-LightItalic" size:18];
+        self.bioTextView.textColor = [UIColor lightGrayColor];
+        self.bioTextView.text = @"Bio not available";
+    }
     
     if ([self.gamerStatus.Tier isEqualToString:@"gold"]) {
         self.tierImageView.image = [UIImage imageNamed:@"xboxGoldTier "];
@@ -38,7 +72,7 @@
     
     // Create and set reputation star view
     // THIS DOES NOT WORK IN LANDSCAPE MODE
-    DYRateView *reputationView = [[DYRateView alloc] initWithFrame:CGRectMake(245, 40, 70,20)];
+    DYRateView *reputationView = [[DYRateView alloc] initWithFrame:CGRectMake(245, 130, 70,20)];
     reputationView.rate = [self.gamerStatus.Reputation floatValue] / 4.0f;
     reputationView.alignment = RateViewAlignmentLeft;
     [self.view addSubview:reputationView];
@@ -53,6 +87,13 @@
     self.avatarTileImageView.layer.shadowRadius = 1;
     self.avatarTileImageView.clipsToBounds = NO;
     [self.avatarTileImageView.layer setMasksToBounds:NO];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self setGamerDetails];
     
 }
 
@@ -65,12 +106,9 @@
     // Set follow/UnFollow button title depending if gamer is alredy a favorite
     if ([self gamerTagExistsInFavorites:self.gamerStatus.Gamertag]) {
         [self.followButton setBackgroundImage:[UIImage imageNamed:@"minus-64"] forState:UIControlStateNormal];
-        NSLog(@"button says UNfollow");
     }
     else {
         [self.followButton setBackgroundImage:[UIImage imageNamed:@"plus-64"] forState:UIControlStateNormal];
-
-        NSLog(@"button says Follow");
     }
 }
 
@@ -81,8 +119,6 @@
     }
     else
         [self removeGamerTagFromFavorites:self.gamerStatus.Gamertag];
-    
-
 }
 
 

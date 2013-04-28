@@ -26,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mottoLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bioLabel;
+@property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 
 
 
