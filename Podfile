@@ -1,0 +1,6 @@
+platform :ios, '6.0'
+pod 'SVProgressHUD'
+pod 'AFNetworking'
+pod 'DYRateView'
+pod 'NoticeView'
+pod 'MagicalRecord'
