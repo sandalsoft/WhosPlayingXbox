@@ -284,6 +284,8 @@
         <class className="GamerStatusViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GamerStatusViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="followButtonPressed:"/>
                 <relationship kind="outlet" name="avatarBodyImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="avatarTileImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bioTextView" candidateClass="UITextView"/>
